@@ -12,25 +12,27 @@ interface ModalNovoRepoProps {
 
 function ModalNovoRepo({ visible, onClose, repositorio, onChange, onSalvar}: ModalNovoRepoProps) {
   return (
-    <Modal animationType="slide" transparent={true} visible={visible} onRequestClose={onClose}>
-      <View style={styles.modalView}>
-        <Text style={styles.modalTitle}>Busca de repositório</Text>
-        <TextInput
-          placeholder="Dono do repositório"
-          value={repositorio.ownerid}
-          onChangeText={(text) => onChange("ownerid", text)}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Nome do repositório"
-          value={repositorio.repoid}
-          onChangeText={(text) => onChange("repoid", text)}
-          style={styles.input}
-        />
-        <View style={styles.botoes}>
-          <Button color="#edb410" title="Cancelar" onPress={onClose} />
-          <View style={{ width: 10 }} />
-          <Button color="#61eb2b" title="Salvar" onPress={onSalvar} />
+    <Modal animationType="fade" transparent={true} visible={visible} onRequestClose={onClose}>
+      <View style={styles.modalContainer}>
+        <View style={styles.modalView}>
+          <Text style={styles.modalTitle}>Busca de repositório</Text>
+          <TextInput
+            placeholder="Dono do repositório"
+            value={repositorio.ownerid}
+            onChangeText={(text) => onChange("ownerid", text)}
+            style={styles.input}
+          />
+          <TextInput
+            placeholder="Nome do repositório"
+            value={repositorio.repoid}
+            onChangeText={(text) => onChange("repoid", text)}
+            style={styles.input}
+          />
+          <View style={styles.botoes}>
+            <Button color="#e0a320e6" title="Cancelar" onPress={onClose} />
+            <View style={{ width: 10 }} />
+            <Button color="#21d642e6" title="Salvar" onPress={onSalvar} />
+          </View>
         </View>
       </View>
     </Modal>
@@ -38,7 +40,15 @@ function ModalNovoRepo({ visible, onClose, repositorio, onChange, onSalvar}: Mod
 }
 
 const styles = StyleSheet.create({
+   modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: 80,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
   modalView: {
+    width: 400,
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
