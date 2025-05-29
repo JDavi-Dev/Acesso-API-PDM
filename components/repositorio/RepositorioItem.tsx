@@ -6,10 +6,10 @@ interface RepositorioItemProps {
   repositorio: Repositorio;
 }
 
-function RepositorioItem({ repositorio }: RepositorioItemProps) {
+function RepositorioItem({ repositorio, }: RepositorioItemProps) {
   return (
     <View style={styles.repositorioItem}>
-      <Text style={styles.repoNome}>Nome do repositório: {repositorio.repoid}</Text>
+      <Text style={styles.repoNome}>Repositório: {repositorio.repoid}</Text>
       <Text style={styles.camposRepo}>Dono do repositório: {repositorio.ownerid}</Text>
       <Text style={styles.camposRepo}>Node_id: {repositorio.node_id}</Text>
       <Text style={styles.camposRepo}>Visibility: {repositorio.visibility}</Text>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   repoNome: {
     color: "#820847",
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
   },
   camposRepo: {

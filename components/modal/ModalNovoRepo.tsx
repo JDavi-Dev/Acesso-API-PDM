@@ -10,20 +10,33 @@ interface ModalNovoRepoProps {
   onSalvar: () => void;
 }
 
-function ModalNovoRepo({ visible, onClose, repositorio, onChange, onSalvar}: ModalNovoRepoProps) {
+function ModalNovoRepo({
+  visible,
+  onClose,
+  repositorio,
+  onChange,
+  onSalvar,
+}: ModalNovoRepoProps) {
   return (
-    <Modal animationType="fade" transparent={true} visible={visible} onRequestClose={onClose}>
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={visible}
+      onRequestClose={onClose}
+    >
       <View style={styles.modalContainer}>
         <View style={styles.modalView}>
           <Text style={styles.modalTitle}>Busca de repositório</Text>
           <TextInput
             placeholder="Dono do repositório"
+            placeholderTextColor="gray"
             value={repositorio.ownerid}
             onChangeText={(text) => onChange("ownerid", text)}
             style={styles.input}
           />
           <TextInput
             placeholder="Nome do repositório"
+            placeholderTextColor="gray"
             value={repositorio.repoid}
             onChangeText={(text) => onChange("repoid", text)}
             style={styles.input}
@@ -40,7 +53,7 @@ function ModalNovoRepo({ visible, onClose, repositorio, onChange, onSalvar}: Mod
 }
 
 const styles = StyleSheet.create({
-   modalContainer: {
+  modalContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -48,8 +61,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalView: {
-    width: 400,
-    margin: 20,
+    width: 300,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,

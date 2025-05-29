@@ -37,7 +37,10 @@ function ReposApi() {
   }, []);
 
   const adicionarRepositorio = async () => {
-    if (!novoRepositorio.ownerid || !novoRepositorio.repoid) {
+    const ownerid = novoRepositorio.ownerid.trim();
+    const repoid = novoRepositorio.repoid.trim();
+
+    if (!ownerid || !repoid) {
       Alert.alert("Erro", "Por favor, preencha os campos do repositório.");
       return;
     }
@@ -45,13 +48,14 @@ function ReposApi() {
     try {
       // Faz a requisição para obter os dados do repositório
       const response = await axios.get(
-        `https://api.github.com/repos/${novoRepositorio.ownerid}/${novoRepositorio.repoid}`
+        `https://api.github.com/repos/${ownerid}/${repoid}`
       );
 
       const { node_id, visibility } = response.data;
 
       const repositorioAtualizado = {
         ...novoRepositorio,
+        id: Math.random().toString(),
         node_id,
         visibility,
       };
@@ -112,21 +116,24 @@ function ReposApi() {
       <Text style={styles.title}>Listagem de Repositórios</Text>
 
       <View style={styles.containerBotoes}>
-        <TouchableOpacity style={styles.botaoAdicionar} onPress={() => setModalVisible(true)}>
+        <TouchableOpacity
+          style={styles.botaoAdicionar}
+          onPress={() => setModalVisible(true)}
+        >
           <Text style={styles.textoBotao}>+</Text>
         </TouchableOpacity>
         <View style={{ width: 20 }} />
-        <TouchableOpacity style={styles.botaoDelete} onPress={deletarTodosRepositorios}>
+        <TouchableOpacity
+          style={styles.botaoDelete}
+          onPress={deletarTodosRepositorios}
+        >
           <Text style={styles.textoBotao}>-</Text>
         </TouchableOpacity>
       </View>
 
       <ScrollView>
         {repositorios.map((item) => (
-          <RepositorioItem
-            key={item.id}
-            repositorio={item}
-          />
+          <RepositorioItem key={item.id} repositorio={item} />
         ))}
       </ScrollView>
 
@@ -150,7 +157,7 @@ const styles = StyleSheet.create({
   },
   containerBotoes: {
     flexDirection: "row",
-    marginBottom: 10
+    marginBottom: 10,
   },
   botaoAdicionar: {
     backgroundColor: "#2161d9",
