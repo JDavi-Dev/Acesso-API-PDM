@@ -35,7 +35,7 @@ function RepositorioItem({ repositorio }: RepositorioItemProps) {
 
 const styles = StyleSheet.create({
   repositorioItem: {
-    width: 325,
+    width: 300,
     padding: 10,
     marginTop: 7,
     marginBottom: 3,
