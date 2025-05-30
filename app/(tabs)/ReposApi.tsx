@@ -18,6 +18,8 @@ function ReposApi() {
   const [novoRepositorio, setNovoRepositorio] = useState<Repositorio>({
     id: "",
     ownerid: "",
+    id_owner: "",
+    type: "",
     repoid: "",
     node_id: "",
     visibility: "",
@@ -51,11 +53,13 @@ function ReposApi() {
         `https://api.github.com/repos/${ownerid}/${repoid}`
       );
 
-      const { node_id, visibility } = response.data;
+      const { owner, node_id, visibility } = response.data;
 
       const repositorioAtualizado = {
         ...novoRepositorio,
         id: Math.random().toString(),
+        id_owner: owner.id,
+        type: owner.type,
         node_id,
         visibility,
       };
@@ -89,6 +93,8 @@ function ReposApi() {
     setNovoRepositorio({
       id: "",
       ownerid: "",
+      id_owner: "",
+      type: "",
       repoid: "",
       node_id: "",
       visibility: "",
