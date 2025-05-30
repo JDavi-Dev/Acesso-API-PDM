@@ -7,7 +7,7 @@ interface ModalNovoRepoProps {
   onClose: () => void;
   repositorio: Repositorio;
   onChange: (campo: string, valor: string) => void;
-  onSalvar: () => void;
+  onAdd: () => void;
 }
 
 function ModalNovoRepo({
@@ -15,7 +15,7 @@ function ModalNovoRepo({
   onClose,
   repositorio,
   onChange,
-  onSalvar,
+  onAdd,
 }: ModalNovoRepoProps) {
   return (
     <Modal
@@ -44,7 +44,7 @@ function ModalNovoRepo({
           <View style={styles.botoes}>
             <Button color="#e0a320e6" title="Cancelar" onPress={onClose} />
             <View style={{ width: 10 }} />
-            <Button color="#21d642e6" title="Salvar" onPress={onSalvar} />
+            <Button color="#21d642e6" title="Adicionar" onPress={onAdd} />
           </View>
         </View>
       </View>

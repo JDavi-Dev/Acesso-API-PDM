@@ -148,7 +148,7 @@ function ReposApi() {
         onClose={fecharModal}
         repositorio={novoRepositorio}
         onChange={atualizarCampo}
-        onSalvar={adicionarRepositorio}
+        onAdd={adicionarRepositorio}
       />
     </View>
   );
