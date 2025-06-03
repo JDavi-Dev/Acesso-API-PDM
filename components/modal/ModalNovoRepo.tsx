@@ -42,9 +42,9 @@ function ModalNovoRepo({
             style={styles.input}
           />
           <View style={styles.botoes}>
-            <Button color="#e0a320e6" title="Cancelar" onPress={onClose} />
+            <Button color="#209419" title="Adicionar" onPress={onAdd} />
             <View style={{ width: 10 }} />
-            <Button color="#21d642e6" title="Adicionar" onPress={onAdd} />
+            <Button color="#d1a037" title="Cancelar" onPress={onClose} />
           </View>
         </View>
       </View>
